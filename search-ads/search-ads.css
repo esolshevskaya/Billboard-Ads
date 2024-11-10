@@ -1,0 +1,209 @@
+/* Основные стили для страницы */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Inter, sans-serif;
+}
+
+body {
+    background-color: #fff;
+    color: #1E293B;
+    overflow-y: scroll;
+}
+
+.page-wrapper {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1296px;
+    width: 90%;
+    margin: 0 auto;
+    padding: 0 20px;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+/* БЛОК ОБЪЯВЛЕНИЙ */
+.all-ads {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 20px auto;
+    padding: 0;
+    min-width: 400px;
+}
+
+/* Контейнер с карточками */
+.all-ads-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+/* Шапка блока объявлений */
+.all-ads-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    width: 100%;
+    margin-bottom: 16px;
+}
+
+.all-ads-found {
+    color: #64748B;
+    text-align: left;
+}
+
+/* Сортировка */
+.sort-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+}
+
+.sorted-by {
+    width: 120px;
+}
+
+.filter-categories {
+    background-color: inherit;
+    border: 1px solid #CBD5E1;
+    border-radius: 4px;
+    height: 40px;
+    width: 120px;
+    padding-left: 10px;
+    text-align: left;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+
+/* Левая колонка (категории) */
+.categories-container {
+    float: left; /* Добавляем обтекание для экранов <1200px */
+    margin: 26px 20px 0 0;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 306px;/* Фиксированная ширина для левой колонки */
+    gap: 16px;
+}
+
+/* Заголовок и поля ввода */
+.header, .price {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.prices {
+    display: flex;
+    font-size: 16px;
+    gap: 8px;
+    width: 306px;
+    text-decoration: none;
+}
+
+.prices input {
+    width: 100%;
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #CBD5E1;
+}
+
+/* Убираем стрелочки в браузере Chrome, Safari, Edge, Opera */
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Убираем стрелочки в Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+/* Кнопка поиска объявлений */
+.search-ads-btn {
+    width: 100%;
+    height: 48px;
+    margin-top: 24px;
+    border-radius: 4px;
+    font-size: 20px;
+    font-weight: 400;
+    text-align: center;
+    background-color: #3b82f6;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+.search-ads-btn:hover {
+    background-color: #2c72e6;
+}
+
+@media (max-width: 1200px) {
+    .cards {
+        grid-template-columns: repeat(3, minmax(220px, 220px)); /* Уменьшаем минимальную ширину колонок */
+    }
+    .card {
+        max-width: 306px;
+        width: 100%;
+        height: 336px;
+        object-fit: cover;
+    }
+    .categories-container {
+        display: flex;
+        flex-direction: column;
+        width: 306px; /* Фиксированная ширина для левой колонки */
+        gap: 16px;
+        float: left; /* Добавляем обтекание для экранов <1200px */
+        margin-right: 20px; /* Отступ справа, чтобы карточки не прилипали */
+    }
+}
+
+@media (max-width: 1000px) {
+    .cards {
+        display: grid;
+        justify-items: center;
+        grid-template-columns: repeat(3, minmax(220px, 220px)); /* Максимум 4 карточки в строке */
+        gap: 15px; /* Горизонтальное и вертикальное расстояние между карточками */
+        row-gap: 30px; /* Фиксированный отступ между строками */
+        width: 100%;
+    }
+    .card {
+        max-width: 306px;
+        width: 100%;
+        height: 336px;
+    }
+    .container, .page-wrapper {
+        flex-direction: column;
+    }
+    .categories-container {
+        display: flex;
+        flex-direction: column;
+        width: 306px; /* Фиксированная ширина для левой колонки */
+        float: left; /* Добавляем обтекание для экранов <1200px */
+    }
+}
+
+/* Контейнер для карточек с фиксированной шириной */
+.cards-container {
+    width: 90%; /* Занимает 90% ширины экрана на больших экранах */
+    margin: 0 auto; /* Центрируем контейнер */
+    padding: 0 10px; /* Отступы слева и справа */
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); /* 1 карточка при уменьшении экрана */
+    gap: 20px; /* Отступы между карточками */
+}
+

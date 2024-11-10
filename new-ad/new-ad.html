@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Новое объявление</title>
+
+    <link rel="stylesheet" href="/header/header.css">
+    <link rel="stylesheet" href="new-ad.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+<div id="header-placeholder"></div>
+
+    <div class="new-ad-container">
+        <div class="new-ad-title">Новое объявление</div>
+        <form class="ad-form">
+
+            <div class="form-group">
+                <label for="category">Выберите категорию <span>*</span></label>
+                <select id="category" class="custom-select" onchange="updateSubcategory()" required>
+                    <option value="" disabled selected hidden>Нажмите, чтобы выбрать</option>
+                    <option value="home">Дом и сад</option>
+                    <option value="electronics">Электроника</option>
+                    <option value="vehicles">Транспорт</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="subcategory">Выберите подкатегорию <span>*</span></label>
+                <select id="subcategory" class="custom-select" disabled  required>
+                    <option value="" disabled selected hidden>Нажмите, чтобы выбрать</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="title">Название объявления <span>*</span></label>
+                <input type="text" id="title" class="form-control" placeholder="Что хотите продать?" required>
+            </div>
+
+            <div class="form-group">
+                <label for="description">Описание</label>
+                <textarea id="description" class="description form-control" placeholder="Расскажите подробнее о товаре или услуге"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="address">Адрес (место проведения сделки) <span>*</span></label>
+                <input type="text" id="address" class="form-control" placeholder="Начните вводить адрес" required>
+            </div>
+
+            <div class="form-group file-upload-container">
+                <button type="button" class="add-images-btn" id="upload-btn">
+                    <img src="/assets/pics/icons/photo-add.png" alt="Иконка добавления" class="icon">
+                    Добавить картинки
+                </button>
+                <div class="file-upload-hint">Максимум 10 картинок в формате jpeg, png или heic</div>
+                <input type="file" id="images" name="images" multiple accept=".jpeg,.jpg,.png,.heic" style="display:none;" />
+            </div>
+
+            <div class="image-container" id="image-preview"></div>
+
+            <div class="form-group">
+                <label for="price">Цена</label>
+                <div>
+                    <input type="number" id="price" class="price" placeholder="0 ₽">
+                </div>
+            </div>
+
+            <button class="submit-btn">Разместить объявление</button>
+            <div class="agreement-text">Нажимая на кнопку «Разместить объявление», вы соглашаетесь с <a href="#">правилами площадки</a></div>
+        </form>
+    </div>
+
+<script src="/header/header.js"></script>
+<script src="new-ad.js"></script>
+</body>
+</html>

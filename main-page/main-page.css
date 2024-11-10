@@ -1,0 +1,173 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Inter, sans-serif;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+body {
+    background-color: #fff;
+    color: #1E293B;
+    overflow-y: scroll;
+}
+
+.main-container {
+    display: flex;
+    max-width: 1296px;
+    width: 90%;
+    margin: 0 auto;
+    padding: 0 20px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.recommendations-bar, .my-ads-bar {
+    width: 100%;
+    line-height: 32px;
+    padding: 32px 0 24px 0;
+    margin: 0 auto;
+    font-size: 24px;
+    font-weight: 600;
+    color: #1E293B;
+}
+
+.cards {
+    display: grid;
+    justify-items: center;
+    width: 100%;
+}
+
+.card {
+    display: flex;
+    justify-items: center;
+    flex-direction: column; /* Вертикальное расположение элементов внутри карточки */
+    border-radius: 4px;
+    text-align: left;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    transition: 0.4s;
+    max-width: 295px;
+    width: 100%;
+    height: 400px; /* Фиксированная высота карточки */
+}
+
+.card:hover {
+    transform: scale(1.02); /* Увеличение при наведении */
+}
+
+.card img {
+    width: 100%;
+    max-width: 295px;
+    height: 100%;
+    max-height: 295px;
+    object-fit: cover;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.card .name,
+.card .price,
+.card .location,
+.card .time {
+    padding: 4px 0;
+    text-align: left;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.card .name {
+    text-overflow: ellipsis;
+    font-size: 20px; /* Размер шрифта */
+    font-weight: 600; /* Жирное начертание */
+    line-height: 24px;
+    margin-top: 10px;
+    color: #3B82F6;
+    cursor: pointer;
+    display: -webkit-box; /* Поддержка для двухстрочного текста */
+    -webkit-line-clamp: 2; /* Ограничение на 2 строки */
+    -webkit-box-orient: vertical; /* Вертикальная ориентация */
+}
+
+.card .price {
+    font-size: 18px; /* Размер шрифта для цены */
+    line-height: 20px;
+    font-weight: 600; /* Жирное начертание */
+    color: #1E293B; /* Цвет цены */
+}
+
+.card .location,
+.card .time {
+    font-size: 16px; /* Размер шрифта для локации и времени */
+    font-weight: 400; /* Обычное начертание */
+    line-height: 16px;
+    color: #64748B; /* Цвет для локации и времени */
+}
+
+.card .time {
+    margin-bottom: 10px; /* Отступ снизу */
+}
+
+.card.new-ad-option {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 240px;
+    background-color: #f4f7ff;
+    border: 3px solid #3B82F629;
+    cursor: pointer;
+}
+
+.card.new-ad-option .new-ad-img {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 10px;
+}
+
+.card.new-ad-option .new-ad-text {
+    gap: 0;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 24px;
+    color: #3B82F6;
+    text-align: left;
+}
+
+/* Адаптивные стили */
+@media (max-width: 1400px) {
+    .cards {
+        grid-template-columns: repeat(4, minmax(220px, 220px)); /* Уменьшаем минимальную ширину колонок */
+    }
+}
+
+@media (max-width: 800px) {
+    .cards {
+        display: grid;
+        justify-items: center;
+        grid-template-columns: repeat(3, minmax(220px, 220px)); /* Максимум 4 карточки в строке */
+        gap: 20px; /* Горизонтальное и вертикальное расстояние между карточками */
+        row-gap: 30px; /* Фиксированный отступ между строками */
+        width: 100%;
+    }
+}
+
+/* Контейнер для карточек с фиксированной шириной */
+.cards-container {
+    max-width: 1286px; /* Максимальная ширина */
+    width: 90%; /* Занимает 90% ширины экрана на больших экранах */
+    margin: 0 auto; /* Центрируем контейнер */
+    padding: 0 10px; /* Отступы слева и справа */
+}
+
+.cards {
+    grid-template-columns: repeat(auto-fill, minmax(255px, 1fr)); /* Заполнение колонок с минимальной шириной 220px */
+    gap: 20px 20px; /* Горизонтальный и вертикальный отступы */
+}

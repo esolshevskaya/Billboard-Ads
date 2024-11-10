@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Поиск объявлений</title>
+
+    <link rel="stylesheet" href="/header/header.css">
+    <link rel="stylesheet" href="/main-page/main-page.css">
+    <link rel="stylesheet" href="/search-ads/search-ads.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+<div id="header-placeholder"></div>
+
+<div class="page-wrapper">
+    <!-- Левая колонка: Категории -->
+    <div class="categories-container">
+        <div class="header">Все категории</div>
+        <div class="all-categories" id="category">
+            <div class="all-sub-categories" id="sub-category"></div>
+        </div>
+        <div class="price">Цена</div>
+        <div class="prices">
+            <input type="number" class="prices price-from" placeholder="от 0 ₽">
+            <input type="number" class="prices price-to" placeholder="до 100 ₽">
+        </div>
+        <button class="search-ads-btn">Показать объявления</button>
+    </div>
+
+    <div class="all-ads">
+        <!-- Всего найдено + фильтры -->
+        <div class="all-ads-bar">
+            <div class="all-ads-found">Всего найдено 4 объявления</div>
+            <div class="sort-container">
+                <div class="sorted-by">Сортировка по</div>
+                <select id="filter-category" class="filter-categories">
+                    <option value="new">Новизне</option>
+                    <option value="cheaper">Дешевле</option>
+                    <option value="expensively">Дороже</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Контейнер с карточками -->
+        <div class="all-ads-container">
+            <div class="cards" id="cards-container">
+                <!-- Карточки объявлений будут загружаться динамически сюда -->
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="/search-ads/search-ads.js"></script>
+<script src="/header/header.js"></script>
+<script src="/main-page/main-page.js"></script>
+
+</body>
+</html>

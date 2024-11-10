@@ -1,0 +1,119 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Inter, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+body {
+  background-color: #fff;
+  color: #1E293B;
+  overflow-y: scroll;
+}
+
+.settings-container {
+  display: flex;
+  max-width: 1296px;
+  width: 90%;
+  margin: 0 auto;
+  padding: 0 20px;
+  flex-direction: column;
+}
+
+.flex-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.settings-title {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 32px;
+  text-align: left;
+  padding: 32px 0 24px 0;
+}
+
+.form-group {
+  width: 416px;
+  margin-bottom: 16px;
+  line-height: 30px;
+}
+
+.input-row {
+  display: flex;
+  gap: 24px;
+}
+
+.form-control {
+  width: 416px;
+  height: 48px;
+  gap: 8px;
+  border-radius: 4px;
+  border: 1px;
+}
+
+.address {
+  width: 856px;
+  height: 80px;
+}
+
+label {
+  display: flex;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  text-align: left;
+  color: #1E293B;
+  align-items: center;
+}
+
+.label-with-note {
+  color: #64748B;
+  margin-left: 8px;
+}
+
+.save-btn {
+  width: 132px;
+  height: 48px;
+  justify-self: center;
+  margin: 6px 0 20px 0;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 28px;
+  color: #fff;
+  background-color: #3B82F6;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.password-btn {
+  width: 200px;
+}
+
+.form-group input, textarea {
+  width: 100%;
+  padding: 12px;
+  margin-top: 5px;
+  border: 1px solid #CBD5E1;
+  border-radius: 4px;
+  color: #1E293B;
+  outline: none;
+  box-shadow: none;
+  text-align: left;
+  font-family: inherit;
+  font-size: inherit;
+}
+
+::placeholder {
+  color: #64748B;
+  line-height: 24px;
+  font-weight: 400;
+  text-align: left;
+}

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Регистрация</title>
+
+    <link rel="stylesheet" href="/header/header.css">
+    <link rel="stylesheet" href="/header/login.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+<div id="header-placeholder"></div>
+
+<div id="authContainer" class="sign-up-container">
+    <form id="authFormSignUp" class="auth-content" novalidate>
+        <h2>Регистрация</h2>
+        <!-- Поле для ввода номера телефона -->
+        <div class="input-wrapper">
+            <input type="text" id="phoneInput" class="text-input" placeholder="Введите номер телефона">
+        </div>
+        <!-- Поле для ввода имени -->
+        <div class="input-wrapper">
+            <input type="text" id="nameInput" class="text-input" placeholder="Введите имя">
+        </div>
+        <!-- Поле для ввода пароля -->
+        <div class="input-wrapper">
+            <input type="password" id="passwordInput" class="password-input" placeholder="Введите пароль">
+        </div>
+
+        <div class="button-wrapper">
+            <button type="submit" class="sign-in-btn">Зарегистрироваться</button>
+        </div>
+
+    </form>
+</div>
+
+<script src="/header/header.js"></script>
+<script src="/header/sign-up.js"></script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Страница объявления</title>
+    <link rel="stylesheet" href="/ad-profile/ad-profile-styles.css">
+    <link rel="stylesheet" href="/header/header.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- Контейнер для шапки -->
+<div id="header-placeholder"></div>
+
+<!-- Подключаем JavaScript для загрузки шапки -->
+<script src="/header/header.js"></script>
+
+<div class="container_ad">
+    <div class="breadcrumbs">
+        <a href="#">Севастополь</a>
+        <a href="#">Животные</a>
+        <a href="#">Другие животные</a>
+        <a href="#">Мифические существа</a>
+    </div>
+
+    <div class="name">Бесноватый котёнок</div>
+
+    <div class="ad-content">
+        <div class="image-gallery">
+            <div class="main-image">
+                <img src="/assets/pics/demon-cat.jpeg" alt="Demon cat">
+            </div>
+            <!-- Галерея миниатюр расположена под главным изображением -->
+            <div class="thumbnails">
+                <div class="thumbnail-images">
+                    <img src="/assets/pics/demon-cat.jpeg" alt="Demon cat">
+                </div>
+            </div>
+        </div>
+
+        <div class="ad-details">
+            <div class="price">666 000 ₽</div>
+            <button type="button" class="phone-btn">
+                <img src="/assets/pics/icons/phone.png" alt="MacBook Pro" class="icon">
+                Показать номер телефона
+            </button>
+
+            <div class="headers address-header">Адрес</div>
+
+            <div class="text">
+                <div>Севастополь, ул. Потусторонняя 66</div>
+                <div class="map">
+                    <a href="https://maps.google.com?q=Севастополь, ул. Гоголя, 33Б" target="_blank">
+                        Открыть на карте
+                        <img src="/assets/pics/icons/arrow-map.png"></a>
+                </div>
+            </div>
+
+            <div class="headers description-header">Описание</div>
+            <div class="text description-text">
+                Кошка дала потомство из 6 котят. Родилось 5 чёрненьких и 1 беленький.
+                Причём не простой, а с пятью глазами и крылышками.
+                Так как его можно рассматривать как фамильяра SSS класса, цена вполне оправдана.
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Модальное окно для просмотра картинок в полном размере -->
+<div class="modal" id="image-modal">
+    <span class="close">&times;</span>
+    <img class="modal-content" id="modal-image">
+</div>
+
+<script src="../mac/ad-profile-mac.js"></script>
+</body>
+</html>

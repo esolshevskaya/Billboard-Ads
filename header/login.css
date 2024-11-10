@@ -1,0 +1,147 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Inter, sans-serif;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+body {
+    background-color: #fff;
+    color: #1E293B;
+    overflow-y: unset;
+}
+
+/* Контейнер для плашки авторизации */
+.auth-container, .sign-up-container {
+    display: flex;
+    margin: 6% auto;
+    width: 416px;
+    height: 364px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+}
+
+.sign-up-container {
+    height: 400px;
+}
+
+.auth-content {
+    display: flex;
+    flex-direction: column;
+    margin: 20px 24px;
+}
+
+.auth-content h2 {
+    margin: 16px 0 20px 0;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 32px;
+    text-align: left;
+}
+
+.text-input, .password-input {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 368px;
+    height: 52px;
+    border-radius: 4px;
+    padding-left: 12px;
+    margin-bottom: 26px;
+    font-size: 16px;
+    border: 1px solid #CBD5E1;
+}
+
+.remember-forgot-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+}
+
+.remember-forgot-container input[type="checkbox"] {
+    margin-right: 5px;
+    width: 16px;
+    height: 16px;
+    border-radius: 4px;
+    border: 2px solid #CBD5E1;
+}
+
+.checkbox {
+    text-align: left;
+    color: #3B82F6;
+}
+
+.remember-forgot-container a {
+    color: #3B82F6;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.remember-forgot-container a:hover {
+    color: #2563EB;
+}
+
+.button-wrapper {
+    display: flex; /* Используем flex-контейнер */
+    justify-content: center; /* Центрируем по горизонтали */
+    align-items: center;
+    width: auto;
+    height: 48px;
+}
+
+.login-submit, .sign-in-btn {
+    padding: 12px 40px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 24px;
+    color: #fff;
+    background-color: #3B82F6;
+    cursor: pointer;
+}
+.sign-in-btn {
+    margin-top: 20px;
+}
+
+.login-submit:hover, .sign-in-btn:hover {
+    background-color: #2563EB;
+}
+
+/* Обертка для поля ввода и сообщения об ошибке */
+.input-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Сообщение об ошибке будет в начале строки */
+    gap: 4px; /* Небольшое расстояние между полем и сообщением об ошибке */
+}
+
+/* Настройка для ошибки */
+.error {
+    display: none;
+    position: absolute;
+    color: red;
+    font-size: 14px;
+    padding: 0;
+    margin-top: 55px;
+    margin-left: 3px;
+}
+
+.error.active {
+    display: block;
+}
+
+.input-error {
+    border: 1px solid red;
+}
+

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Страница объявления</title>
+    <link rel="stylesheet" href="/ad-profile/ad-profile-styles.css">
+
+    <link rel="stylesheet" href="/header/header.css">
+    <link rel="stylesheet" href="/categories/categories.css"> <!-- Если файл в той же папке -->
+
+    <script src="/header/header.js"></script> <!-- Если файл в родительской папке -->
+
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div id="header-placeholder"></div>
+
+<div class="container_ad">
+    <div class="breadcrumbs">
+        <a href="#">Севастополь</a>
+        <a href="#">Электроника</a>
+        <a href="#">Ноутбуки</a>
+        <a href="#">Apple</a>
+    </div>
+
+    <div class="name">Macbook pro 13 2020 m1 8/256</div>
+
+    <div class="ad-content">
+        <div class="image-gallery">
+            <div class="main-image">
+                <img src="/assets/pics/macbook1.jpeg" alt="MacBook Pro">
+            </div>
+            <!-- Галерея миниатюр расположена под главным изображением -->
+            <div class="thumbnails">
+                <div class="thumbnail-images">
+                    <img src="/assets/pics/macbook1.jpeg" alt="MacBook Pro">
+                    <img src="/assets/pics/macbook2.jpeg" alt="MacBook Pro">
+                    <img src="/assets/pics/macbook3.jpeg" alt="MacBook Pro">
+                    <img src="/assets/pics/macbook4.jpeg" alt="MacBook Pro">
+                    <img src="/assets/pics/macbook5.jpeg" alt="MacBook Pro">
+                </div>
+            </div>
+        </div>
+
+        <div class="ad-details">
+            <div class="price">80 000 ₽</div>
+            <button type="button" class="phone-btn">
+                <img src="/assets/pics/icons/phone.png" alt="MacBook Pro" class="icon">
+                Показать номер телефона
+            </button>
+
+            <div class="headers address-header">Адрес</div>
+
+            <div class="text">
+                <div>Севастополь, ул. Гоголя, 33Б</div>
+                <div class="map">
+                    <a href="https://maps.google.com?q=Севастополь, ул. Гоголя, 33Б" target="_blank">
+                        Открыть на карте
+                        <img src="/assets/pics/icons/arrow-map.png"></a>
+                </div>
+            </div>
+
+            <div class="headers description-header">Описание</div>
+            <div class="text description-text">
+                Продается MacBook Pro 13 8/256. Сам ноутбук в отличном состоянии, количество циклов перезарядки 123, в комплекте: коробка, ноутбук, блок, кабель и чек!
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Модальное окно для просмотра картинок в полном размере -->
+<div class="modal" id="image-modal">
+    <span class="close">&times;</span>
+    <img class="modal-content" id="modal-image">
+</div>
+
+<script src="ad-profile-mac.js"></script>
+
+</body>
+</html>
