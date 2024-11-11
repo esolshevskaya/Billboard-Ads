@@ -11,39 +11,39 @@ a {
 }
 
 .top-bar {
-    background-color: #1e293b;
-    color: #fff;
-    padding: 8px 0;
     width: 100%;
     height: 52px;
+    padding: 8px 0;
+    background-color: #1e293b;
+    color: #fff;
 }
 
 .container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
     max-width: 1296px;
     width: 90%;
     margin: 0 auto;
     padding: 0 20px;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
 }
 
 .user-actions {
     display: flex;
-    justify-content: flex-end;
     align-items: center;
+    justify-content: flex-end;
     gap: 16px;
 }
 
 .btn {
     display: flex;
     align-items: center;
-    gap: 8px;
     padding: 8px 12px;
-    font-size: 14px;
+    gap: 8px;
+    font-size: 16px;
     font-weight: 500;
-    cursor: pointer;
     border-radius: 4px;
+    cursor: pointer;
 }
 
 .btn-login {
@@ -51,22 +51,22 @@ a {
     width: 70px;
     height: 36px;
     padding: 8px 0;
-    margin-right: 24px;
+    margin-right: 16px;
     background: none;
     color: #fff;
     border: none;
 }
 
 .btn-new-ad {
-    justify-content: right;
-    width: 210px;
+    justify-content: flex-end;
+    width: 190px;
     height: 32px;
     padding: 6px 12px;
     gap: 4px;
     border: none;
     border-radius: 4px;
-    background-color: #3B82F6;
     color: #fff;
+    background-color: #3B82F6;
     white-space: nowrap;
 }
 
@@ -81,78 +81,83 @@ a {
 
 /* Главная плашка */
 .main-bar {
-    padding: 24px 0;
     width: 100%;
+    padding: 24px 0;
     border-bottom: 2px solid #e2e8f0;
 }
 
 .site-title {
     width: 284px;
     height: 36px;
-    gap: 0;
-    line-height: 36px;
-    text-align: left;
     margin-right: 30px;
-    color: #1e293b;
+    gap: 0;
     font-size: 30px;
     font-weight: 700;
+    line-height: 36px;
+    text-align: left;
+    color: #1e293b;
     white-space: nowrap;
 }
 
 .search-area {
     display: flex;
     justify-content: right;
-    gap: 0;
-    flex-grow: 1;
     align-items: center;
     width: 824px;
     height: 36px;
-    border-radius: 4px 0 0 0;
+    gap: 0;
     border: 1px;
+    border-radius: 4px 0 0 0;
+    flex-grow: 1;
 }
 
 .btn-categories {
     width: 180px;
     height: 36px;
+    margin-right: 12px;
     padding: 8px 12px;
     gap: 8px;
-    margin-right: 12px;
+    border: 1px solid #3b82f6;
     border-radius: 4px;
     color: #3B82F6;
     background: none;
-    border: 1px solid #3b82f6;
     white-space: nowrap;
 }
 
+.btn-categories:hover {
+    color: #2c72e6;
+}
 .search-form {
     display: flex;
-    flex-grow: 1;
     height: 36px;
     border: 2px solid #ccc;
-    border-right: none;
     border-radius: 4px 0 0 4px;
+    border-right: none;
+    flex-grow: 1;
 }
 
 .search-form input {
-    border: none;
-    flex-grow: 1;
     padding: 8px;
+    font-size: 16px;
+    border: none;
+    color: #1e293b;
+    flex-grow: 1;
     outline: none;
 }
 
 .btn-search {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 100px;
     height: 36px;
     padding: 8px 12px;
     gap: 8px;
-    border-radius: 0 4px 4px 0;
-    background-color: #3b82f6;
     border: 2px solid #3b82f6;
+    border-radius: 0 4px 4px 0;
     border-left: none;
+    background-color: #3b82f6;
     color: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
 .btn-search:hover {

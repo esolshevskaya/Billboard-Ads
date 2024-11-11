@@ -18,21 +18,21 @@ body {
 
 .new-ad-container {
   display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: left;
   max-width: 1296px;
   width: 90%;
   margin: 0 auto;
   padding: 0 20px;
-  justify-content: left;
-  align-items: flex-start;
-  flex-direction: column;
 }
 
 .new-ad-title {
+  padding: 32px 0 24px 0;
   font-size: 24px;
   font-weight: 600;
   line-height: 32px;
   text-align: left;
-  padding: 32px 0 24px 0;
 }
 
 .form-group {
@@ -54,18 +54,18 @@ body {
 option {
   width: 200px;
   height: 24px;
+  gap: 8px;
   font-weight: 400;
   text-align: left;
-  gap: 8px;
   color: #1E293B;
 }
 
 label {
+  align-items: center;
   padding-bottom: 8px;
   font-weight: 400;
   text-align: left;
   color: #1E293B;
-  align-items: center;
 }
 
 .form-group span {
@@ -95,12 +95,12 @@ label {
 }
 
 .form-text {
+  font-weight: 400;
   line-height: 24px;
   text-align: left;
-  font-weight: 400;
-  color: #1E293B;
   border: 1px solid #CBD5E1;
   border-radius: 4px;
+  color: #1E293B;
 }
 
 .file-upload-container {
@@ -109,8 +109,8 @@ label {
   width: 100%;
   height: 64px;
   margin: 20px 0;
-  gap: 8px;
   padding: 8px 12px;
+  gap: 8px;
   border: 1px solid #CBD5E1;
   border-radius: 4px;
   background-color: #f1f3f6;
@@ -120,11 +120,11 @@ label {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 14px;
-  line-height: 20px;
-  color: #1E293B;
   height: 100%;
   padding: 10px;
+  font-size: 16px;
+  line-height: 20px;
+  color: #1E293B;
 }
 
 input[type="file"] {
@@ -136,8 +136,8 @@ input[type="file"] {
   flex-direction: column;
   position: relative;
   width: 100%;
-  gap: 8px;
   margin-bottom: 24px;
+  gap: 8px;
   border: 1px solid #CBD5E1;
   padding: 12px;
   cursor: pointer;
@@ -149,21 +149,21 @@ input[type="file"] {
 }
 
 #image-preview img {
+  align-items: center;
   width: 160px;
   height: 160px;
+  margin: 8px;
+  object-fit: cover;
   border: 2px solid #CBD5E1;
   border-radius: 4px;
-  object-fit: cover;
-  align-items: center;
-  margin: 8px;
 }
 
 .image-info {
   display: flex;
   justify-content: flex-start;
-  gap: 12px;
-  padding: 10px;
   margin-left: 16px;
+  padding: 10px;
+  gap: 12px;
   font-size: 16px;
   font-weight: 400;
   line-height: 24px;
@@ -176,35 +176,35 @@ input[type="file"] {
 }
 
 .remove-image-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 20px;
   height: 20px;
   font-size: 14px;
-  color: #3B82F6;
   border: 2px solid #3B82F6;
   border-radius: 4px;
   background: none;
+  color: #3B82F6;
   cursor: pointer;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .add-images-btn {
+  box-sizing: border-box;
   display: flex;
   align-items: center;
   justify-content: center;
   width: auto;
   height: auto;
   padding: 8px 16px;
-  font-size: 10px;
-  font-weight: 400;
   gap: 8px;
-  color: #fff;
-  background-color: #3B82F6;
+  font-size: 16px;
+  font-weight: 400;
   border: none;
   border-radius: 4px;
+  color: #fff;
+  background-color: #3B82F6;
   cursor: pointer;
-  box-sizing: border-box;
 }
 
 .add-images-btn img.icon {
@@ -220,17 +220,17 @@ input[type="file"] {
   font-size: 20px;
   font-weight: 400;
   line-height: 28px;
-  color: #fff;
-  background-color: #3B82F6;
   border: none;
   border-radius: 4px;
+  color: #fff;
+  background-color: #3B82F6;
   cursor: pointer;
 }
 
 .agreement-text {
   width: 425px;
   margin: 20px 0 40px 0;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 400;
   line-height: 20px;
   text-align: left;
@@ -247,10 +247,12 @@ input[type="file"] {
 }
 
 .agreement-text a:hover {
-  color: #0062ff; /* цвет текста при наведении */
+  color: #0062ff;
 }
 
-.form-group input, .form-group select, .form-group textarea {
+.form-group input,
+.form-group select,
+.form-group textarea {
   width: 100%;
   padding: 12px;
   margin-top: 5px;
@@ -265,13 +267,19 @@ input[type="file"] {
 }
 
 ::placeholder {
-  color: #64748B;
-  line-height: 24px;
   font-weight: 400;
+  line-height: 24px;
   text-align: left;
+  color: #64748B;
 }
 
 select:disabled, input:disabled {
   color: #64748B;
   background-color: #f9f9f9;
+}
+
+@media (max-width: 580px) {
+  .form-group {
+    width: 90%;
+  }
 }

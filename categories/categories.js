@@ -57,6 +57,8 @@ const categories = {
     },
 };
 
+export default categories;
+
 let selectedMainCategory = null;
 let selectedSubCategory = null;
 let selectedThirdCategory = null;

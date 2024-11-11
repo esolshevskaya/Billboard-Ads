@@ -1,3 +1,128 @@
+fetch('/categories/categories.json')
+    .then(response => response.json())
+    .then(categories => {
+        const mainCategoryList = document.getElementById('main-category-list');
+
+        // Функция для создания списка категорий
+        function createCategoryList(categories, parentElement, level = 1) {
+            Object.keys(categories).forEach(categoryName => {
+                const categoryLi = document.createElement('li');
+                categoryLi.classList.add('category');
+
+                const categoryText = document.createElement('span');
+                categoryText.classList.add('category-text');
+                categoryText.textContent = categoryName; // Добавляем текст категории
+                categoryLi.appendChild(categoryText);
+
+                parentElement.appendChild(categoryLi);
+
+                // Обработчик клика для категории
+                categoryLi.addEventListener('click', function (event) {
+                    event.stopPropagation(); // Остановить всплытие события
+
+                    // Выделение элемента
+                    const allCategories = parentElement.querySelectorAll('.category');
+                    allCategories.forEach(item => item.classList.remove('selected')); // Убираем выделение у всех
+                    categoryLi.classList.add('selected'); // Добавляем выделение для текущей категории
+
+                    // Toggle для раскрытия подкатегорий
+                    categoryLi.classList.toggle('open');
+
+                    // Если уровень 1, то показываем подкатегории второго уровня
+                    if (level === 1) {
+                        closeOtherCategories(mainCategoryList, categoryLi);
+                        showSubCategories(categoryName, categories, categoryLi);
+                    } else if (level === 2) {
+                        closeOtherCategories(categoryLi.parentElement, categoryLi);
+                        showThirdCategories(categoryName, categories, categoryLi);
+                    }
+                });
+
+                // Если категория имеет подкатегории второго уровня, создаем для них вложенные списки
+                if (level === 1 && typeof categories[categoryName] === 'object' && !Array.isArray(categories[categoryName])) {
+                    const subCategoryList = document.createElement('ul');
+                    categoryLi.appendChild(subCategoryList);
+                    createCategoryList(categories[categoryName], subCategoryList, 2);
+                } else if (level === 1 && Array.isArray(categories[categoryName])) {
+                    // Если подкатегория второго уровня - это массив строк
+                    const subCategoryList = document.createElement('ul');
+                    categoryLi.appendChild(subCategoryList);
+                    categories[categoryName].forEach(subCategory => {
+                        const subCategoryLi = document.createElement('li');
+                        subCategoryLi.textContent = subCategory;
+                        subCategoryList.appendChild(subCategoryLi);
+                    });
+                }
+            });
+        }
+
+        // Функция для закрытия других категорий того же уровня
+        function closeOtherCategories(parentElement, currentCategoryLi) {
+            const allCategories = parentElement.querySelectorAll('.category');
+            allCategories.forEach(categoryLi => {
+                if (categoryLi !== currentCategoryLi && categoryLi.classList.contains('open')) {
+                    categoryLi.classList.remove('open');
+                }
+            });
+        }
+
+        // Функция для отображения подкатегорий второго уровня
+        function showSubCategories(categoryName, categories, parentElement) {
+            const subCategories = categories[categoryName];
+
+            // Проверяем, есть ли уже вложенные подкатегории
+            const existingSubCategoryList = parentElement.querySelector('ul');
+            if (existingSubCategoryList) {
+                existingSubCategoryList.remove(); // Удаляем старые подкатегории
+            }
+
+            // Если подкатегории есть, создаем их
+            const subCategoryList = document.createElement('ul');
+            parentElement.appendChild(subCategoryList);
+            createCategoryList(subCategories, subCategoryList, 2);
+        }
+
+        function showThirdCategories(categoryName, categories, parentElement) {
+            const thirdCategories = categories[categoryName];
+
+            // Удаляем старые подкатегории третьего уровня, если они существуют
+            const existingThirdCategoryList = parentElement.querySelector('ul');
+            if (existingThirdCategoryList) {
+                existingThirdCategoryList.remove();
+            }
+
+            // Создаем новый список для третьего уровня
+            const thirdCategoryList = document.createElement('ul');
+            parentElement.appendChild(thirdCategoryList);
+
+            // Генерируем элементы третьего уровня
+            thirdCategories.forEach(subCategory => {
+                const subCategoryLi = document.createElement('li');
+                subCategoryLi.classList.add('category-third');
+                subCategoryLi.textContent = subCategory;
+                thirdCategoryList.appendChild(subCategoryLi);
+
+                // Добавляем обработчик клика для выделения
+                subCategoryLi.addEventListener('click', function (event) {
+                    event.stopPropagation(); // Останавливаем всплытие события
+
+                    // Убираем выделение у всех элементов третьего уровня
+                    const allThirdLevelCategories = parentElement.querySelectorAll('.category-third');
+                    allThirdLevelCategories.forEach(item => item.classList.remove('selected'));
+
+                    // Выделяем текущий элемент
+                    subCategoryLi.classList.add('selected');
+                });
+            });
+        }
+
+
+        // Инициализация категорий
+        createCategoryList(categories, mainCategoryList);
+    })
+    .catch(error => console.error('Ошибка при загрузке данных категорий:', error));
+
+
 // Массив с карточками (можно загружать с сервера или хранить локально)
 const cardsData = [
     {

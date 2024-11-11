@@ -38,26 +38,20 @@ body {
 ul {
     padding: 0;
     margin: 0;
-    list-style-type: none;
     font-size: 16px;
+    list-style-type: none;
 }
 
-#main-category-list {
-    width: 350px;
-}
-
-#sub-category-list {
-    width: 350px;
-}
-
+#main-category-list,
+#sub-category-list,
 #third-category-list {
     width: 350px;
 }
 
 li {
-    cursor: pointer;
     padding: 8px 0;
     font-size: 16px;
+    cursor: pointer;
 }
 
 li.selected {
@@ -110,11 +104,11 @@ li.heading {
 
 .sub-category,
 .third-category {
-    width: 100%;
-    gap: 8px;
     flex-direction: column;
-    padding-right: 24px;
     position: relative;
+    width: 100%;
+    padding-right: 24px;
+    gap: 8px;
     cursor: pointer;
 }
 

@@ -18,9 +18,8 @@
     <!-- Левая колонка: Категории -->
     <div class="categories-container">
         <div class="header">Все категории</div>
-        <div class="all-categories" id="category">
-            <div class="all-sub-categories" id="sub-category"></div>
-        </div>
+        <ul id="main-category-list" class="category-list"></ul> <!-- Основные категории -->
+
         <div class="price">Цена</div>
         <div class="prices">
             <input type="number" class="prices price-from" placeholder="от 0 ₽">
@@ -52,8 +51,7 @@
     </div>
 </div>
 
-
-<script src="/search-ads/search-ads.js"></script>
+<script type="module" src="/search-ads/search-ads.js"></script>
 <script src="/header/header.js"></script>
 <script src="/main-page/main-page.js"></script>
 

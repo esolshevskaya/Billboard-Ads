@@ -13,18 +13,16 @@ a {
 body {
     background-color: #fff;
     color: #1E293B;
-    overflow-y: unset;
 }
 
-/* Контейнер для плашки авторизации */
 .auth-container, .sign-up-container {
     display: flex;
-    margin: 6% auto;
     width: 416px;
-    height: 364px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
+    height: 390px;
+    margin: 6% auto;
     border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .sign-up-container {
@@ -51,11 +49,11 @@ body {
     justify-content: center;
     width: 368px;
     height: 52px;
-    border-radius: 4px;
-    padding-left: 12px;
     margin-bottom: 26px;
-    font-size: 16px;
+    padding-left: 12px;
     border: 1px solid #CBD5E1;
+    border-radius: 4px;
+    font-size: 16px;
 }
 
 .remember-forgot-container {
@@ -69,11 +67,11 @@ body {
 }
 
 .remember-forgot-container input[type="checkbox"] {
-    margin-right: 5px;
     width: 16px;
     height: 16px;
-    border-radius: 4px;
+    margin-right: 5px;
     border: 2px solid #CBD5E1;
+    border-radius: 4px;
 }
 
 .checkbox {
@@ -91,9 +89,25 @@ body {
     color: #2563EB;
 }
 
+.sign-up-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    height: 20px;
+    margin-top: 16px;
+    color: #3B82F6;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.sign-up-text a:hover {
+    color: #2563EB;
+}
+
 .button-wrapper {
-    display: flex; /* Используем flex-контейнер */
-    justify-content: center; /* Центрируем по горизонтали */
+    display: flex;
+    justify-content: center;
     align-items: center;
     width: auto;
     height: 48px;
@@ -111,30 +125,28 @@ body {
     cursor: pointer;
 }
 .sign-in-btn {
-    margin-top: 20px;
+    margin-top: 10px;
 }
 
 .login-submit:hover, .sign-in-btn:hover {
     background-color: #2563EB;
 }
 
-/* Обертка для поля ввода и сообщения об ошибке */
 .input-wrapper {
     display: flex;
     flex-direction: column;
-    align-items: flex-start; /* Сообщение об ошибке будет в начале строки */
-    gap: 4px; /* Небольшое расстояние между полем и сообщением об ошибке */
+    align-items: flex-start;
+    gap: 4px;
 }
 
-/* Настройка для ошибки */
 .error {
     display: none;
-    position: absolute;
-    color: red;
-    font-size: 14px;
-    padding: 0;
     margin-top: 55px;
     margin-left: 3px;
+    padding: 0;
+    font-size: 14px;
+    color: red;
+    position: absolute;
 }
 
 .error.active {
