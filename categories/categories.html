@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Категории поиска</title>
 
-    <link rel="stylesheet" href="/categories/categories.css">
+    <link rel="stylesheet" href="categories.css">
+    <script src="categories.js"></script>
+
     <link rel="stylesheet" href="/header/header.css">
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
@@ -18,24 +20,14 @@
     <div class="categories">
         <ul id="main-category-list">
             <li class="all-categories">Все категории</li>
-            <li class="category">Транспорт</li>
-            <li class="category">Недвижимость</li>
-            <li class="category">Работа</li>
-            <li class="category">Услуги</li>
-            <li class="category">Личные вещи</li>
-            <li class="category">Автозапчасти и аксессуары</li>
-            <li class="category">Электроника</li>
-            <li class="category">Хобби и отдых</li>
-            <li class="category">Животные</li>
-            <li class="category">Бизнес и оборудование</li>
         </ul>
 
-        <ul id="sub-category-list" class="sub-category"></ul>
-        <ul id="third-category-list" class="third-category"></ul>
+        <ul id="sub-category-list" class="sub-category" style="display: none;"></ul>
+        <ul id="third-category-list" class="third-category" style="display: none;"></ul>
     </div>
 </div>
 
-<script src="/categories/categories.js"></script>
+
 <script src="/header/header.js"></script>
 </body>
 </html>

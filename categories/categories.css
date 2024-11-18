@@ -2,7 +2,7 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: Inter, sans-serif;
+    font-family: 'Inter', sans-serif;
 }
 
 a {
@@ -62,6 +62,23 @@ li.selected {
     background-color: #f0f0f0;
 }
 
+li:hover {
+    background-color: #e5e5e5;
+}
+
+li.heading {
+    width: 100%;
+    height: 32px;
+    margin-bottom: 16px;
+    gap: 4px;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 32px;
+    text-align: left;
+    pointer-events: none;
+    cursor: default;
+}
+
 .all-categories {
     display: block;
     width: 100%;
@@ -75,53 +92,26 @@ li.selected {
     cursor: default;
 }
 
-li.heading {
-    width: 100%;
-    height: 32px;
-    margin-bottom: 16px;
-    gap: 4px;
-    top: 4px;
-    font-size: 24px;
-    font-weight: 600;
-    line-height: 32px;
-    text-align: left;
-    pointer-events: none;
-    cursor: default;
+.all-categories:hover {
+    background-color: white;
 }
-
 .category {
     width: 100%;
     height: 40px;
     padding: 8px 12px;
-    gap: 10px;
     font-weight: 400;
     line-height: 24px;
     text-align: left;
     color: #1E293B;
-    border-radius: 8px 0 0 0;
+    border-radius: 8px;
     cursor: pointer;
-}
-
-.sub-category,
-.third-category {
-    flex-direction: column;
     position: relative;
-    width: 100%;
-    padding-right: 24px;
-    gap: 8px;
-    cursor: pointer;
 }
 
-li.category {
-    position: relative;
-    padding-right: 24px;
-}
-
-li.category::after,
-li.sub-category::after {
+.category::after {
     content: '';
     position: absolute;
-    right: 8px;
+    right: 12px;
     top: 50%;
     width: 12px;
     height: 12px;
@@ -131,6 +121,112 @@ li.sub-category::after {
     background-repeat: no-repeat;
 }
 
-.sub-category li, .third-category li {
-    padding: 8px 16px;
+.category a {
+    text-decoration: none;
+    color: inherit;  /* Наследует цвет от родителя */
 }
+
+.sub-category,
+.third-category {
+    flex-direction: column;
+    position: relative;
+    width: 100%;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.sub-category li,
+.third-category li {
+    padding: 8px 16px;
+    border-radius: 8px;
+}
+
+.sub-category li::after,
+.third-category li::after {
+    content: '';
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    width: 12px;
+    height: 12px;
+    transform: translateY(-50%);
+    background-image: url('/assets/pics/icons/chevron-right.png'); /* Убедитесь, что путь корректен */
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+ul.sub-category, ul.third-category {
+    display: none; /* По умолчанию скрыты */
+    padding-left: 16px;
+    margin-top: 8px;
+    list-style-type: none;
+}
+
+ul.sub-category li,
+ul.third-category li {
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+/* Обновленные стили для категории и стрелки */
+.category {
+    position: relative;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-weight: 400;
+    border-radius: 8px;
+}
+
+.category:hover {
+    background-color: #f5f5f5;
+}
+
+/* Стиль для стрелки */
+.category-arrow {
+    position: absolute;
+
+    top: 50%;
+    width: 12px;
+    height: 12px;
+    padding: 10px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    transform: translateY(-50%);
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: background-color 0.3s ease-in-out, border 0.3s ease-in-out; /* Добавлен переход для бордера */
+}
+
+.category-arrow-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    width: 40px;
+    height: 40px;
+    transform: translateY(-50%);
+    border: 2px solid transparent;
+    border-radius: 4px;
+    transition: background-color 0.3s ease-in-out, border-color 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+/* Стиль для самой иконки */
+.category-arrow {
+    width: 12px;  /* Оставляем размер иконки постоянным */
+    height: 12px; /* Оставляем размер иконки постоянным */
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.category-arrow-wrapper:hover,
+.category-arrow-wrapper:active,
+.category-arrow-wrapper:focus {
+    outline: none;
+    border: 2px solid #3B82F6;
+    background-color: white;
+}
+

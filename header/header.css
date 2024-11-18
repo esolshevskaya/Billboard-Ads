@@ -58,13 +58,12 @@ a {
 }
 
 .btn-new-ad {
-    justify-content: flex-end;
-    width: 190px;
+    justify-content: center;
+    width: 200px;
     height: 32px;
     padding: 6px 12px;
     gap: 4px;
     border: none;
-    border-radius: 4px;
     color: #fff;
     background-color: #3B82F6;
     white-space: nowrap;

@@ -1,133 +1,167 @@
-const categories = {
-    "Транспорт": {
-        "Автомобили": ["Легковые", "Грузовые", "Автобусы"],
-        "Мотоциклы": ["Вездеходы", "Мопеды", "Снегоходы"],
-        "Велосипеды": ["Горные", "Шоссейные", "Электровелосипеды"],
-        "Запчасти": ["Для автомобилей", "Для мотоциклов", "Для велосипедов"]
-    },
-    "Недвижимость": {
-        "Квартиры": ["Аренда", "Покупка"],
-        "Дома": ["Аренда", "Покупка"],
-        "Земельные участки": ["Для строительства", "Садовые", "Сельскохозяйственные"],
-        "Коммерческая недвижимость": ["Офисы", "Магазины", "Склады"]
-    },
-    "Электроника": {
-        "Смартфоны": ["Android", "iOS", "Windows Phone"],
-        "Ноутбуки": ["Игровые", "Ультрабуки", "Бюджетные"],
-        "Телевизоры": ["Смарт ТВ", "4K", "OLED"],
-        "Аудиотехника": ["Наушники", "Колонки", "Музыкальные центры"]
-    },
-    "Услуги": {
-        "Ремонт": ["Квартир", "Автомобилей", "Электроники"],
-        "Уборка": ["Квартир", "Офисов", "Промышленных помещений"],
-        "Консалтинг": ["Бизнес-консалтинг", "Финансовый консалтинг", "IT-консалтинг"],
-        "Обучение": ["Онлайн-курсы", "Репетиторы", "Тренинги"]
-    },
-    "Работа": {
-        "Фриланс": ["Дизайн", "Программирование", "Копирайтинг"],
-        "Полная занятость": ["IT", "Маркетинг", "Управление"],
-        "Частичная занятость": ["Уборка", "Преподавание", "Продажи"]
-    },
-    "Хобби и отдых": {
-        "Спорт": ["Футбол", "Баскетбол", "Теннис"],
-        "Творчество": ["Рисование", "Музыка", "Ремесла"],
-        "Путешествия": ["Поездки по России", "Зарубежные поездки", "Автостоп"],
-        "Кулинария": ["Рецепты", "Кулинарные курсы", "Готовка на костре"]
-    },
-    "Животные": {
-        "Собаки": ["Щенки", "Взрослые", "Породистые"],
-        "Кошки": ["Котята", "Взрослые", "Породистые"],
-        "Птицы": ["Попугаи", "Голуби", "Канарейки"],
-        "Мелкие животные": ["Хомяки", "Крысы", "Кролики"]
-    },
-    "Личные вещи": {
-        "Одежда": ["Мужская", "Женская", "Детская"],
-        "Обувь": ["Спортивная", "Повседневная", "Обувь для отдыха"],
-        "Аксессуары": ["Сумки", "Ремни", "Украшения"],
-        "Косметика": ["Макияж", "Уход за кожей", "Парфюмерия"]
-    },
-    "Автозапчасти и аксессуары": {
-        "Запчасти": ["Двигатели", "Трансмиссии", "Подвески"],
-        "Аксессуары": ["Коврики", "Чехлы", "Аудиосистемы"]
-    },
-    "Бизнес и оборудование": {
-        "Оборудование": ["Производственное", "Строительное", "Складское"],
-        "Офисные принадлежности": ["Столы", "Кресла", "Техника"],
-        "Франшизы": ["Кафе", "Магазины", "Сервисы"]
-    },
-};
+document.addEventListener('DOMContentLoaded', () => {
+    const jsonFilePath = 'categories.json'; // Путь к JSON-файлу
 
-export default categories;
+    // Получаем ссылки на элементы списка
+    const mainCategoryList = document.getElementById('main-category-list');
+    const subCategoryList = document.getElementById('sub-category-list');
+    const thirdCategoryList = document.getElementById('third-category-list');
+    const searchInput = document.getElementById('search-input'); // Поле поиска
 
-let selectedMainCategory = null;
-let selectedSubCategory = null;
-let selectedThirdCategory = null;
+    let categoriesData = {};
 
-document.querySelectorAll('#main-category-list .category').forEach(item => {
-    item.addEventListener('click', () => {
-        const subCategoryList = document.getElementById('sub-category-list');
-        const thirdCategoryList = document.getElementById('third-category-list');
-
-        if (selectedMainCategory) {
-            selectedMainCategory.classList.remove('selected');
-        }
-
-        item.classList.add('selected');
-        selectedMainCategory = item;
-
-        subCategoryList.innerHTML = '';
-        thirdCategoryList.innerHTML = '';
-
-        const mainTitle = document.createElement('li');
-        mainTitle.textContent = item.textContent;
-        mainTitle.classList.add('heading');
-        subCategoryList.appendChild(mainTitle);
-
-        const subCategories = categories[item.textContent];
-        if (subCategories) {
-            for (let subCat in subCategories) {
-                const li = document.createElement('li');
-                li.textContent = subCat;
-                li.classList.add('sub-category');
-                subCategoryList.appendChild(li);
-
-                li.addEventListener('click', (e) => {
-                    e.stopPropagation();
-
-                    if (selectedSubCategory) {
-                        selectedSubCategory.classList.remove('selected');
-                    }
-
-                    li.classList.add('selected');
-                    selectedSubCategory = li;
-
-                    thirdCategoryList.innerHTML = '';
-
-                    const thirdTitle = document.createElement('li');
-                    thirdTitle.textContent = subCat;
-                    thirdTitle.classList.add('heading');
-                    thirdCategoryList.appendChild(thirdTitle);
-
-                    const thirdCategories = subCategories[subCat];
-                    thirdCategories.forEach(thirdCat => {
-                        const thirdLi = document.createElement('li');
-                        thirdLi.textContent = thirdCat;
-                        thirdLi.classList.add('third-category');
-                        thirdCategoryList.appendChild(thirdLi);
-
-                        thirdLi.addEventListener('click', (e) => {
-                            e.stopPropagation();
-
-                            if (selectedThirdCategory) {
-                                selectedThirdCategory.classList.remove('selected');
-                            }
-
-                            thirdLi.classList.add('selected');
-                            selectedThirdCategory = thirdLi;
-                        });
-                    });
-                });
+    // Функция для загрузки JSON-файла
+    async function loadCategories() {
+        try {
+            const response = await fetch(jsonFilePath);
+            if (!response.ok) {
+                throw new Error(`Ошибка загрузки JSON: ${response.status}`);
             }
+            categoriesData = await response.json();
+            populateMainCategories();
+        } catch (error) {
+            console.error('Ошибка загрузки категорий:', error);
         }
-    });
+    }
+
+    // Функция для очистки списка
+    function clearList(list) {
+        list.innerHTML = '';
+        list.style.display = 'none';
+    }
+
+    // Функция для добавления 'selected' класса
+    function setSelected(element, list) {
+        const previouslySelected = list.querySelectorAll('li.selected');
+        previouslySelected.forEach(item => item.classList.remove('selected'));
+        element.classList.add('selected');
+    }
+
+    // Функция для создания и добавления иконки и контейнера
+    function createCategoryArrow() {
+        const wrapper = document.createElement('div');
+        wrapper.classList.add('category-arrow-wrapper');
+
+        const arrow = document.createElement('div');
+        arrow.classList.add('category-arrow');
+
+        wrapper.appendChild(arrow);
+
+        return wrapper;
+    }
+
+    // Функция для заполнения основного списка категорий
+    function populateMainCategories() {
+        // Добавляем каждую основную категорию как li.category
+        Object.keys(categoriesData).forEach(mainCategory => {
+            const li = document.createElement('li');
+            li.classList.add('category');
+            li.textContent = mainCategory;
+
+            // Добавляем иконку с контейнером в каждый элемент категории
+            const categoryArrow = createCategoryArrow();
+            li.appendChild(categoryArrow);
+
+            // Обработчик для клика по самому li (категории)
+            li.addEventListener('click', () => {
+                setSelected(li, mainCategoryList);
+                populateSubCategories(mainCategory);
+            });
+
+            // Обработчик для клика по контейнеру с иконкой
+            const container = document.createElement('div');
+            container.classList.add('category-container');
+            container.appendChild(categoryArrow);
+
+            // При клике на контейнер с иконкой, текст категории вставляется в поле поиска
+            container.addEventListener('click', (e) => {
+                e.stopPropagation(); // Останавливаем всплытие события, чтобы не срабатывал обработчик на li
+                searchInput.value = mainCategory; // Вставляем текст категории в поле поиска
+            });
+
+            li.appendChild(container);
+            mainCategoryList.appendChild(li);
+        });
+    }
+
+    // Функция для заполнения подкатегорий
+    function populateSubCategories(mainCategory) {
+        clearList(subCategoryList);
+        clearList(thirdCategoryList);
+
+        const subCategories = Object.keys(categoriesData[mainCategory]);
+
+        if (subCategories.length > 0) {
+            subCategoryList.style.display = 'block';
+            subCategories.forEach(subCategory => {
+                const li = document.createElement('li');
+                li.classList.add('category');
+                li.textContent = subCategory;
+
+                // Добавляем иконку с контейнером в каждый элемент категории
+                const categoryArrow = createCategoryArrow();
+                li.appendChild(categoryArrow);
+
+                li.addEventListener('click', () => {
+                    setSelected(li, subCategoryList);
+                    populateThirdCategories(mainCategory, subCategory);
+                });
+
+                // Обработчик для клика по контейнеру подкатегории
+                const container = document.createElement('div');
+                container.classList.add('category-container');
+                container.appendChild(categoryArrow);
+
+                // При клике на контейнер подкатегории, вставляем текст в поле поиска
+                container.addEventListener('click', (e) => {
+                    e.stopPropagation(); // Останавливаем всплытие события
+                    searchInput.value = subCategory; // Вставляем текст подкатегории в поле поиска
+                });
+
+                li.appendChild(container);
+                subCategoryList.appendChild(li);
+            });
+        }
+    }
+
+    // Функция для заполнения третьих категорий
+    function populateThirdCategories(mainCategory, subCategory) {
+        clearList(thirdCategoryList);
+
+        const thirdCategories = categoriesData[mainCategory][subCategory];
+
+        if (thirdCategories && thirdCategories.length > 0) {
+            thirdCategoryList.style.display = 'block';
+            thirdCategories.forEach(thirdCategory => {
+                const li = document.createElement('li');
+                li.classList.add('category');
+                li.textContent = thirdCategory;
+
+                // Добавляем иконку с контейнером в каждый элемент категории
+                const categoryArrow = createCategoryArrow();
+                li.appendChild(categoryArrow);
+
+                li.addEventListener('click', () => {
+                    setSelected(li, thirdCategoryList);
+                    console.log(`Выбрана категория третьего уровня: ${thirdCategory}`);
+                });
+
+                // Обработчик для клика по контейнеру третьей категории
+                const container = document.createElement('div');
+                container.classList.add('category-container');
+                container.appendChild(categoryArrow);
+
+                // При клике на контейнер третьей категории, вставляем текст в поле поиска
+                container.addEventListener('click', (e) => {
+                    e.stopPropagation(); // Останавливаем всплытие события
+                    searchInput.value = thirdCategory; // Вставляем текст третьей категории в поле поиска
+                });
+
+                li.appendChild(container);
+                thirdCategoryList.appendChild(li);
+            });
+        }
+    }
+
+    // Инициализация загрузки категорий
+    loadCategories();
 });
